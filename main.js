@@ -1,128 +1,3 @@
-// let i=0;
-// const carousel = document.querySelector('.carousel');
-// const items = Array.from(carousel.children);
-// const left = document.querySelector('.btn');
-// const right = document.querySelector('.rightbtn');
-// let per=0;
-// let current = document.querySelector('.current');
-// let temp = current;
-// let next = current.nextElementSibling;
-// const width = items[0].getBoundingClientRect().width;
-// // console.log(width);
-
-// // console.log(current);
-// // console.log(items.length);
-// for(let i=0;i<items.length;i++){
-//     items[i].style.left = width*i+'px';
-// }
-// function my(){
-//     if(!i){
-//         console.log("chlra h");
-//         if(!next){
-
-//         }
-        
-//             current = document.querySelector('.current');
-//             next = current.nextElementSibling;
-        
-        
-
-//         if(per<100)
-//             per+=1;
-//         else{ 
-//             per=0;
-//             current=temp;
-//             current.classList.add('current');
-//         }
-//         if(!next){
-
-//         }else{
-//             if(per==30 || per==55){
-//                 current.classList.remove('current');
-//                 next.classList.add('current');
-//                 current=null;
-                
-//             }
-//         }
-//     }else{
-//         console.log("ruk gya");
-//     }
-// }
-// setInterval(my,600);
-
-// left.addEventListener('click', e=>{
-//     if(per<25 || per>35 && per<50){
-//         carousel.style.animationPlayState = "paused";
-//         i=1;
-//         if(!next){
-//             carousel.style.animationPlayState = "running";
-//             i=0;
-
-//         }
-//         let current = document.querySelector('.current');
-//         let prev = current.previousElementSibling;
-//         let move = prev.style.left;
-//         carousel.style.transform = 'translateX(-'+move+')';
-//         current.classList.remove('current');
-//         prev.classList.add('current');
-//         setTimeout(2000);
-//         carousel.style.animationPlayState = "running";
-//         i=0;
-//     }else if(per>60){
-//         carousel.style.animationPlayState = "paused";
-//         i=1;
-//         if(!next){
-//             carousel.style.animationPlayState = "running";
-//             i=0;
-//         }
-//         let current = document.querySelector('.current');
-//         let prev = current.previousElementSibling;
-//         let move = prev.style.left;
-//         carousel.style.transform = 'translateX(-'+move+')';
-//         current.classList.remove('current');
-//         prev.classList.add('current');
-//         setTimeout(2000);
-//         carousel.style.animationPlayState = "running";
-//         i=0;
-//     }else{
-//         console.log("Ruko Jldi kahe ki");
-//     }
-// });
-
-// right.addEventListener('click', e=>{
-//     if(per<25 || per>35 && per<50){
-//         carousel.style.animationPlayState = "paused";
-//         i=1;
-//         let current = document.querySelector('.current');
-//         let next = current.nextElementSibling;
-//         let move = next.style.left;
-//         console.log(next);
-//         console.log(carousel.style.transform);
-//         carousel.style.transform = 'translateX(-'+ move +')';
-
-//         current.classList.remove('current');
-//         next.classList.add('current');
-//         left.classList.remove('deactive');
-//         carousel.style.animationPlayState = "running";
-//         i=0;
-//     }else if(per>60){
-//         carousel.style.animationPlayState = "paused";
-//         i=1;
-//         let current = document.querySelector('.current');
-//         let next = current.nextElementSibling;
-//         let move = next.style.left;
-//         console.log(carousel.style.transform);
-//         carousel.style.transform = 'translateX(-'+ move +')';
-
-//         current.classList.remove('current');
-//         next.classList.add('current');
-//         left.classList.remove('deactive');
-//         carousel.style.animationPlayState = "running";
-//         i=0;
-//     }else{
-//         console.log("Ruko Jldi kahe ki");
-//     }
-// });
 const images = document.querySelectorAll('.carousel-item');
 const dots = document.querySelectorAll('.dot');
 const prev = document.querySelector('.prev');
@@ -196,6 +71,7 @@ function indicators(){
 if(window.PointerEvent){
     let ismoving = false;
 let initialPosition = null;
+
 carousel.addEventListener('pointerdown',(e)=>{
     clearInterval(interval);
     initialPosition = e.pageX;
@@ -212,11 +88,12 @@ carousel.addEventListener('pointermove',(e)=>{
         }else{
             nextSlide();
         }
+        autoSlide();
     }
     
 });
 carousel.addEventListener('pointerup',(e)=>{
     ismoving=false;
-    autoSlide();
+    
 });
 }
