@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+*{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 1.2rem;
+}
+body{
+   overflow-x: hidden;
+    
+}
+.main{
+    width: 100vw;
+    height: 100vh;
+}
+.header{
+    width: 100%;
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+
+img{
+    width: 180px;
+    padding: 1em ;
+}
+.content{
+    position: absolute;
+    top: 50%;
+    
+    transform: translatey(-50%);
+    color: white;
+    z-index: 20;
+    text-transform: uppercase;
+    
+    width: 100%;
+    text-align: center;
+    padding: 0 1em;
+}
+button{
+    padding: .6em 1.1em;
+    margin-top: 2em;
+    background-color: #fb5777;
+    outline: none;
+    border: none;
+    font-size: .8rem;
+    color: white;
+    
+    font-weight: bold;
+}
+
+
+
+
+/* 
+.prev{
+    position: absolute;
+    background-color: #fadfe4;
+    z-index: 20;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.next{
+    position: absolute;
+    background-color: #fadfe4;
+    z-index: 20;
+    top: 50%;
+    right: 0%;
+    transform: translateY(-50%);
+} */
+
+.container{
+    
+    width: 100%;
+    background-color: whitesmoke;
+    padding: .5em 0;
+    /* height: 30%; */
+    height: 200px;
+    
+    position: relative;
+    
+}
+.carousel{
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 24px;
+    scroll-behavior: smooth;
+    
+    position: relative;
+    /* transition: transform 250MS ease-in;
+    animation: 60s slider ease-in infinite; */
+}
+
+.carousel-item{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    inset: 0;
+    scroll-snap-align: start;
+    
+}
+.carousel-item:not('.current'){
+    right: -100%;
+}
+.carousel-item img{
+    width: 100%;
+    height: 100%;
+    padding: 0%;
+    z-index: 4;
+    object-fit: cover;
+}
+/* .container .btn{
+    
+    position: absolute;
+    z-index: 20;
+    top: 50%;
+    padding: .5em .1em;
+    background-color: whitesmoke;
+    transform: translateY(-50%);
+} */
+.container .rightbtn{
+    position: absolute;
+    z-index: 20;
+    top: 50%;
+    right: 0%;
+    padding: .5em .1em;
+    background-color: whitesmoke;
+    transform: translateY(-50%);
+}
+
+.container .deactive{
+    display: none;
+}
+.btn{
+    position: absolute;
+    width: 3%;
+    padding: .5em 0%;
+    transform: translateY(-50%);
+    z-index: 20;
+    top: 50%;
+    background-color: white;
+    opacity: .8;
+}
+.prev{
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.next{
+    right: 0;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.btn:hover{
+    opacity: .6;
+}
+
+@keyframes next1{
+    from{
+        left: 0%;
+    }to{
+        left:-100%;
+    }
+}
+@keyframes next2{
+    from{
+        left: 100%;
+    }to{
+        left: 0%;
+    }
+}
+@keyframes prev1{
+    from{
+        left: 0%;
+    }to{
+        left:100%;
+    }
+}
+@keyframes prev2{
+    from{
+        left: -100%;
+    }to{
+        left: 0%;
+    }
+}
+.nav{
+    position: absolute;
+    bottom: 12%;
+    left: 50%;  
+    width: 6%;
+    justify-content: space-between;
+    display: flex;
+    transform: translateX(-50%);
+}
+.nav .dot{
+    width: 15px;
+    height: 8px;
+    border-radius: 12px;
+    z-index: 50;
+    background-color: GREY;
+    transition: all 0.5s ease-in-out;
+}
+.nav .active{
+    background-color: white;
+}
+@media (max-width:1100px) and (min-width:800px){
+    .nav{
+        width: 10%;
+    }
+    .nav .dot{
+        
+    }
+    .btn{
+        display: none;
+    }
+    .rightbtn{
+        display: none;
+    }
+}
+@media (max-width:800px){
+    .nav{
+        width: 14%;
+    }
+    .nav .dot{
+        width: 15px;
+        height: 8px;
+    }
+    .btn{
+        display: none;
+    }
+    .rightbtn{
+        display: none;
+    }
+}
